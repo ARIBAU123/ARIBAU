@@ -1,81 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apartamento Turístico - Información</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apartamento Turístico en Barcelona</title>
+  <!-- Enlaza el archivo de estilos CSS -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Navegación de idiomas: en móvil se muestra como menú colapsable, en escritorio como sidebar -->
-  <nav class="language-nav">
-    <button class="menu-toggle" id="languageToggle">☰ Idiomas</button>
-    <ul class="language-list" id="languageList">
-      <li><button data-lang="es" class="lang-btn">Español</button></li>
-      <li><button data-lang="en" class="lang-btn">English</button></li>
-      <li><button data-lang="it" class="lang-btn">Italiano</button></li>
-      <li><button data-lang="fr" class="lang-btn">Français</button></li>
-      <li><button data-lang="zh" class="lang-btn">中文</button></li>
-    </ul>
-  </nav>
+  <!-- Barra lateral de selección de idioma -->
+  <div class="sidebar">
+    <!-- Cada botón tiene un atributo data-lang para identificar el idioma -->
+    <button data-lang="es">Español</button>
+    <button data-lang="en">Inglés</button>
+    <button data-lang="it">Italiano</button>
+    <button data-lang="fr">Francés</button>
+    <button data-lang="zh">中文</button>
+  </div>
 
-  <!-- Encabezado con título y navegación interna -->
-  <header>
-    <div class="header-inner">
-      <h1 class="site-title">Apartamento Turístico</h1>
-      <button class="menu-toggle" id="navToggle">☰ Menú</button>
-      <nav class="navbar" id="navbar">
-        <ul>
-          <li><a href="#" data-section="como_llegar" class="nav-link active">...</a></li>
-          <li><a href="#" data-section="llegada_primer_dia" class="nav-link">...</a></li>
-          <li><a href="#" data-section="normas" class="nav-link">...</a></li>
-          <li><a href="#" data-section="recomendaciones" class="nav-link">...</a></li>
-          <li><a href="#" data-section="apartamento" class="nav-link">...</a></li>
-          <li><a href="#" data-section="ultimo_dia" class="nav-link">...</a></li>
-          <li><a href="#" data-section="telefonos" class="nav-link">...</a></li>
-        </ul>
-      </nav>
+  <!-- Contenedor principal -->
+  <div class="main-container">
+    <!-- Barra de navegación superior -->
+    <nav class="top-nav">
+      <a href="#" data-section="howTo" id="nav-howTo"></a>
+      <a href="#" data-section="arrival" id="nav-arrival"></a>
+      <a href="#" data-section="rules" id="nav-rules"></a>
+      <a href="#" data-section="recommendations" id="nav-recommendations"></a>
+      <a href="#" data-section="apartment" id="nav-apartment"></a>
+      <a href="#" data-section="lastDay" id="nav-lastDay"></a>
+      <a href="#" data-section="phones" id="nav-phones"></a>
+    </nav>
+
+    <!-- Secciones de contenido -->
+    <div id="content">
+      <!-- Sección: Cómo llegar -->
+      <div class="section" id="section-howTo">
+        <h2 id="section-howTo-title"></h2>
+        <p id="section-howTo-instructions"></p>
+        <p id="section-howTo-address"></p>
+      </div>
+      <!-- Sección: Llegada al apartamento, primer día -->
+      <div class="section" id="section-arrival">
+        <h2 id="section-arrival-title"></h2>
+        <p id="section-arrival-supplies"></p>
+        <p id="section-arrival-wifi"></p>
+        <p id="section-arrival-supermarkets"></p>
+        <p id="section-arrival-restaurants"></p>
+      </div>
+      <!-- Sección: Normas de la casa -->
+      <div class="section" id="section-rules">
+        <h2 id="section-rules-title"></h2>
+        <p id="section-rules-content"></p>
+      </div>
+      <!-- Sección: Recomendaciones -->
+      <div class="section" id="section-recommendations">
+        <h2 id="section-recommendations-title"></h2>
+        <p id="section-recommendations-content"></p>
+      </div>
+      <!-- Sección: El apartamento -->
+      <div class="section" id="section-apartment">
+        <h2 id="section-apartment-title"></h2>
+        <p id="section-apartment-description"></p>
+        <p id="section-apartment-address"></p>
+      </div>
+      <!-- Sección: Último día -->
+      <div class="section" id="section-lastDay">
+        <h2 id="section-lastDay-title"></h2>
+        <p id="section-lastDay-instructions"></p>
+      </div>
+      <!-- Sección: Teléfonos de interés -->
+      <div class="section" id="section-phones">
+        <h2 id="section-phones-title"></h2>
+        <p id="section-phones-numbers"></p>
+      </div>
     </div>
-  </header>
+  </div>
 
-  <!-- Contenido principal: se oculta hasta seleccionar idioma -->
-  <main class="content-wrapper hidden">
-    <section id="como_llegar" class="content-section active">
-      <h1>...</h1>
-      <div class="section-content"></div>
-    </section>
-
-    <section id="llegada_primer_dia" class="content-section">
-      <h1>...</h1>
-      <div class="section-content"></div>
-    </section>
-
-    <section id="normas" class="content-section">
-      <h1>...</h1>
-      <div class="section-content"></div>
-    </section>
-
-    <section id="recomendaciones" class="content-section">
-      <h1>...</h1>
-      <div class="section-content"></div>
-    </section>
-
-    <section id="apartamento" class="content-section">
-      <h1>...</h1>
-      <div class="section-content"></div>
-    </section>
-
-    <section id="ultimo_dia" class="content-section">
-      <h1>...</h1>
-      <div class="section-content"></div>
-    </section>
-
-    <section id="telefonos" class="content-section">
-      <h1>...</h1>
-      <div class="section-content"></div>
-    </section>
-  </main>
-
+  <!-- Enlaza el archivo JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
