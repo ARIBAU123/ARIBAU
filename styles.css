@@ -1,4 +1,4 @@
-/* Reset básico y estilos globales */
+/* Reset y estilos básicos */
 * {
   margin: 0;
   padding: 0;
@@ -6,205 +6,104 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  background-color: #fff;
+  font-family: Arial, sans-serif;
+  background-color: #fff; /* Fondo blanco */
+  color: #000; /* Texto en negro */
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Barra lateral de idiomas (fija a la izquierda) */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 90px;
+  height: 100vh;
+  background-color: #f0f0f0; /* Gris claro */
+  border-right: 2px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.sidebar button {
+  background: none;
+  border: none;
+  margin: 10px 0;
+  cursor: pointer;
+  font-size: 12px;
   color: #000;
 }
 
-.hidden {
-  display: none;
+.sidebar button:hover {
+  color: #d00; /* Rojo de acento */
 }
 
-/* Estilos para la navegación de idiomas */
-.language-nav {
-  background-color: #f2f2f2;
-  border-bottom: 2px solid #000;
-  padding: 10px 20px;
-  position: relative;
-}
-
-.language-nav .menu-toggle {
-  background-color: #cc0000;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  font-size: 1.2em;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.language-list {
-  list-style: none;
-  margin-top: 10px;
-}
-
-.language-list li {
-  margin-bottom: 10px;
-}
-
-.language-list li button {
+/* Contenedor principal: barra de navegación superior + contenido */
+.main-container {
+  margin-left: 90px; /* Ancho de la sidebar */
   width: 100%;
-  padding: 8px;
-  border: 2px solid #000;
-  border-radius: 4px;
-  background-color: #cc0000;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.language-list li button:hover {
-  background-color: #a30000;
-}
-
-/* Estilos para el encabezado y la navegación interna */
-header {
-  background-color: #000;
-  color: #fff;
-}
-
-.header-inner {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-  position: relative;
+  flex-direction: column;
 }
 
-.site-title {
-  font-size: 1.5em;
-}
-
-/* Botón para menú en móvil */
-.menu-toggle#navToggle {
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  font-size: 1.5em;
-  cursor: pointer;
-  display: none; /* Se mostrará solo en móviles */
-}
-
-.navbar {
-  margin-top: 10px;
-}
-
-.navbar ul {
-  list-style: none;
+/* Barra de navegación superior */
+.top-nav {
+  background-color: #f0f0f0; /* Fondo gris */
+  border-bottom: 2px solid #ccc;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.navbar ul li {
-  margin: 5px 10px;
-}
-
-.navbar ul li a {
-  color: #fff;
+.top-nav a {
+  padding: 15px 20px;
   text-decoration: none;
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: background-color 0.3s;
+  color: #000;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
-.navbar ul li a:hover,
-.navbar ul li a.active {
-  background-color: #cc0000;
+.top-nav a:hover,
+.top-nav a.active {
+  color: #d00; /* Enlace activo/hover en rojo */
 }
 
-/* Contenido principal */
-.content-wrapper {
-  padding: 20px;
-  margin-top: 20px;
-}
-
-.content-section {
-  margin-bottom: 20px;
-  border: 2px solid #000;
-  border-radius: 8px;
-  background-color: #f2f2f2;
+/* Secciones de contenido */
+.section {
+  display: none; /* Solo se muestra la sección activa */
   padding: 20px;
 }
 
-.content-section h1 {
+.section.active {
+  display: block;
+}
+
+/* Titulares de sección */
+.section h2 {
   margin-bottom: 10px;
+  color: #d00; /* Títulos en rojo */
 }
 
-/* Media Queries para pantallas mayores (escritorio) */
-@media (min-width: 768px) {
-  /* La navegación de idiomas se convierte en sidebar */
-  .language-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 180px;
-    height: 100%;
-    border-right: 2px solid #000;
-    border-bottom: none;
-    padding: 20px;
-  }
-  .language-nav .menu-toggle {
-    display: none;
-  }
-  .language-list {
-    margin-top: 20px;
-  }
-  /* Encabezado y contenido se ajustan al ancho restante */
-  header {
-    position: fixed;
-    top: 0;
-    left: 180px;
-    width: calc(100% - 180px);
-    z-index: 1000;
-  }
-  .menu-toggle#navToggle {
-    display: none;
-  }
-  .content-wrapper {
-    margin-left: 180px;
-    padding: 80px 20px 20px;
-  }
+/* Estilos para párrafos y textos */
+.section p {
+  margin-bottom: 15px;
+  line-height: 1.6;
 }
 
-/* Estilos específicos para móviles */
-@media (max-width: 767px) {
-  /* Mostrar botón para menú interno */
-  #navToggle {
-    display: block;
+/* Responsive para móviles */
+@media (max-width: 600px) {
+  .sidebar {
+    width: 70px;
   }
-  .navbar {
-    display: none;
-    width: 100%;
-    background-color: #000;
+  .main-container {
+    margin-left: 70px;
   }
-  .navbar.active {
-    display: block;
-  }
-  .navbar ul {
-    flex-direction: column;
-    align-items: center;
-  }
-  .navbar ul li {
-    width: 100%;
-    text-align: center;
-    margin: 5px 0;
-  }
-  /* Menú de idiomas colapsable */
-  #languageList {
-    display: none;
-  }
-  #languageList.active {
-    display: block;
-    position: absolute;
-    top: 45px;
-    left: 20px;
-    right: 20px;
-    background-color: #f2f2f2;
-    border: 2px solid #000;
-    padding: 10px;
-    border-radius: 4px;
-    z-index: 1000;
+  .top-nav a {
+    padding: 10px 12px;
+    font-size: 12px;
   }
 }
 
