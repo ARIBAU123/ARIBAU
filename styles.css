@@ -1,4 +1,4 @@
-/* Reset y estilos básicos */
+/* Reset y estilos generales */
 * {
   margin: 0;
   padding: 0;
@@ -6,44 +6,58 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #fff; /* Fondo blanco */
-  color: #000; /* Texto en negro */
+  font-family: 'Roboto', sans-serif;
+  background-color: #fff; /* Blanco */
+  color: #000; /* Negro */
   display: flex;
   min-height: 100vh;
 }
 
-/* Barra lateral de idiomas (fija a la izquierda) */
+/* Estilos de enlaces */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Sidebar (barra lateral) */
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 90px;
-  height: 100vh;
-  background-color: #f0f0f0; /* Gris claro */
-  border-right: 2px solid #ccc;
+  background-color: #f7f7f7; /* Gris claro */
+  border-right: 1px solid #ccc;
+  width: 80px;
+  min-width: 80px;
+  padding: 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
+  position: fixed;
+  height: 100vh;
 }
 
-.sidebar button {
+.sidebar .logo h1 {
+  font-size: 18px;
+  color: #d00; /* Rojo */
+  margin-bottom: 30px;
+}
+
+.sidebar .lang-selector button {
   background: none;
   border: none;
   margin: 10px 0;
-  cursor: pointer;
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: 500;
   color: #000;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
-.sidebar button:hover {
-  color: #d00; /* Rojo de acento */
+.sidebar .lang-selector button:hover,
+.sidebar .lang-selector button.active {
+  color: #d00;
 }
 
-/* Contenedor principal: barra de navegación superior + contenido */
-.main-container {
-  margin-left: 90px; /* Ancho de la sidebar */
+/* Contenedor principal */
+.main-content {
+  margin-left: 80px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -51,59 +65,92 @@ body {
 
 /* Barra de navegación superior */
 .top-nav {
-  background-color: #f0f0f0; /* Fondo gris */
-  border-bottom: 2px solid #ccc;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  background-color: #f7f7f7; /* Gris claro */
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.top-nav a {
-  padding: 15px 20px;
-  text-decoration: none;
+.top-nav nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+.top-nav nav a {
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 500;
   color: #000;
-  font-weight: bold;
   transition: color 0.3s;
 }
 
-.top-nav a:hover,
-.top-nav a.active {
-  color: #d00; /* Enlace activo/hover en rojo */
+.top-nav nav a:hover,
+.top-nav nav a.active {
+  color: #d00;
+  border-bottom: 2px solid #d00;
 }
 
 /* Secciones de contenido */
-.section {
-  display: none; /* Solo se muestra la sección activa */
+.content {
   padding: 20px;
+}
+
+.section {
+  display: none;
+  animation: fadeIn 0.5s ease-in-out;
+  margin-bottom: 20px;
 }
 
 .section.active {
   display: block;
 }
 
-/* Titulares de sección */
 .section h2 {
-  margin-bottom: 10px;
-  color: #d00; /* Títulos en rojo */
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #d00;
 }
 
-/* Estilos para párrafos y textos */
 .section p {
-  margin-bottom: 15px;
+  font-size: 16px;
   line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* Responsive para móviles */
 @media (max-width: 600px) {
   .sidebar {
-    width: 70px;
+    width: 60px;
+    min-width: 60px;
+    padding: 15px 0;
   }
-  .main-container {
-    margin-left: 70px;
+  .sidebar .logo h1 {
+    font-size: 16px;
+    margin-bottom: 20px;
   }
-  .top-nav a {
-    padding: 10px 12px;
+  .sidebar .lang-selector button {
     font-size: 12px;
+    margin: 8px 0;
+  }
+  .main-content {
+    margin-left: 60px;
+  }
+  .top-nav nav a {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+  .section h2 {
+    font-size: 20px;
+  }
+  .section p {
+    font-size: 14px;
   }
 }
-
