@@ -1,4 +1,4 @@
-// Objeto de traducciones para cada idioma
+// Objeto con las traducciones para cada idioma
 const translations = {
   es: {
     nav: {
@@ -158,7 +158,7 @@ const translations = {
         title: "Arrivée à l'appartement, premier jour",
         supplies: "Fournitures : savon, papier toilette, café, eau et boissons gazeuses.",
         wifi: "WiFi : Nom : 'ApartamentoBarcaWiFi', Mot de passe : 'Bienvenido123'",
-        supermarkets: "Supermarchés à proximité : Bon Preu (Carrer Provença 138), Suma Supermercat (Rosselló 96).",
+        supermarkets: "Supermarchés à proximité : Bon Preu (Carrer Provença 138), Suma Supermarchat (Rosselló 96).",
         restaurants: "Restaurants à proximité : Soda Bus (Aribau 127), La Bodega de Joan (Aribau 176)."
       },
       rules: {
@@ -232,14 +232,14 @@ const translations = {
   }
 };
 
-// Variable para idioma actual (por defecto español)
+// Idioma por defecto: español
 let currentLanguage = "es";
 
-// Función para actualizar textos en la página según el idioma seleccionado
+// Función para actualizar los textos según el idioma seleccionado
 function updateTranslations() {
   const lang = translations[currentLanguage];
 
-  // Actualizar navegación
+  // Actualización de la barra de navegación
   document.getElementById("nav-howTo").textContent = lang.nav.howTo;
   document.getElementById("nav-arrival").textContent = lang.nav.arrival;
   document.getElementById("nav-rules").textContent = lang.nav.rules;
@@ -248,74 +248,71 @@ function updateTranslations() {
   document.getElementById("nav-lastDay").textContent = lang.nav.lastDay;
   document.getElementById("nav-phones").textContent = lang.nav.phones;
 
-  // Actualizar sección: Cómo llegar
+  // Actualización de secciones
   document.getElementById("section-howTo-title").textContent = lang.sections.howTo.title;
   document.getElementById("section-howTo-instructions").textContent = lang.sections.howTo.instructions;
   document.getElementById("section-howTo-address").textContent = lang.sections.howTo.address;
 
-  // Actualizar sección: Llegada
   document.getElementById("section-arrival-title").textContent = lang.sections.arrival.title;
   document.getElementById("section-arrival-supplies").textContent = lang.sections.arrival.supplies;
   document.getElementById("section-arrival-wifi").textContent = lang.sections.arrival.wifi;
   document.getElementById("section-arrival-supermarkets").textContent = lang.sections.arrival.supermarkets;
   document.getElementById("section-arrival-restaurants").textContent = lang.sections.arrival.restaurants;
 
-  // Actualizar sección: Normas de la casa
   document.getElementById("section-rules-title").textContent = lang.sections.rules.title;
   document.getElementById("section-rules-content").textContent = lang.sections.rules.content;
 
-  // Actualizar sección: Recomendaciones
   document.getElementById("section-recommendations-title").textContent = lang.sections.recommendations.title;
   document.getElementById("section-recommendations-content").textContent = lang.sections.recommendations.content;
 
-  // Actualizar sección: El apartamento
   document.getElementById("section-apartment-title").textContent = lang.sections.apartment.title;
   document.getElementById("section-apartment-description").textContent = lang.sections.apartment.description;
   document.getElementById("section-apartment-address").textContent = lang.sections.apartment.address;
 
-  // Actualizar sección: Último día
   document.getElementById("section-lastDay-title").textContent = lang.sections.lastDay.title;
   document.getElementById("section-lastDay-instructions").textContent = lang.sections.lastDay.instructions;
 
-  // Actualizar sección: Teléfonos de interés
   document.getElementById("section-phones-title").textContent = lang.sections.phones.title;
   document.getElementById("section-phones-numbers").textContent = lang.sections.phones.numbers;
 }
 
-// Función para mostrar la sección seleccionada y resaltar el enlace activo
+// Función para mostrar la sección solicitada y resaltar el enlace activo
 function showSection(sectionId) {
-  // Ocultar todas las secciones
-  document.querySelectorAll(".section").forEach(sec => {
-    sec.classList.remove("active");
+  // Oculta todas las secciones
+  document.querySelectorAll(".section").forEach(section => {
+    section.classList.remove("active");
   });
-  // Remarcar enlaces en la barra de navegación
-  document.querySelectorAll(".top-nav a").forEach(link => {
+  // Quita la clase activa a los enlaces del top-nav
+  document.querySelectorAll(".top-nav nav a").forEach(link => {
     link.classList.remove("active");
   });
-  // Mostrar la sección seleccionada
+  // Muestra la sección solicitada
   document.getElementById("section-" + sectionId).classList.add("active");
-  // Resaltar el enlace activo
-  document.querySelector(`.top-nav a[data-section="${sectionId}"]`).classList.add("active");
+  // Resalta el enlace activo
+  document.querySelector(`.top-nav nav a[data-section="${sectionId}"]`).classList.add("active");
 }
 
-// Asignar eventos a los botones de idioma
-document.querySelectorAll(".sidebar button").forEach(btn => {
-  btn.addEventListener("click", () => {
-    currentLanguage = btn.getAttribute("data-lang");
+// Asigna eventos a los botones de selección de idioma
+document.querySelectorAll(".sidebar .lang-selector button").forEach(btn => {
+  btn.addEventListener("click", function() {
+    currentLanguage = this.getAttribute("data-lang");
+    // Resalta el botón seleccionado
+    document.querySelectorAll(".sidebar .lang-selector button").forEach(b => b.classList.remove("active"));
+    this.classList.add("active");
     updateTranslations();
   });
 });
 
-// Asignar eventos a los enlaces de navegación
-document.querySelectorAll(".top-nav a").forEach(link => {
-  link.addEventListener("click", (e) => {
+// Asigna eventos a los enlaces de navegación
+document.querySelectorAll(".top-nav nav a").forEach(link => {
+  link.addEventListener("click", function(e) {
     e.preventDefault();
-    const section = link.getAttribute("data-section");
+    const section = this.getAttribute("data-section");
     showSection(section);
   });
 });
 
-// Inicialización: actualizar traducciones y mostrar la primera sección por defecto
+// Inicialización: establecer idioma por defecto y mostrar la primera sección
 updateTranslations();
 showSection("howTo");
 
