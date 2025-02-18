@@ -3,80 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apartamento Turístico en Barcelona</title>
-  <!-- Enlaza el archivo de estilos CSS -->
+  <title>Apartamento Turístico Barcelona</title>
+  <!-- Fuente profesional -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Enlace al CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <!-- Barra lateral de selección de idioma -->
-  <div class="sidebar">
-    <!-- Cada botón tiene un atributo data-lang para identificar el idioma -->
-    <button data-lang="es">Español</button>
-    <button data-lang="en">Inglés</button>
-    <button data-lang="it">Italiano</button>
-    <button data-lang="fr">Francés</button>
-    <button data-lang="zh">中文</button>
-  </div>
+  <aside class="sidebar">
+    <div class="logo">
+      <!-- Puedes reemplazar este texto con el logo de tu empresa -->
+      <h1>MiEmpresa</h1>
+    </div>
+    <div class="lang-selector">
+      <button data-lang="es">ES</button>
+      <button data-lang="en">EN</button>
+      <button data-lang="it">IT</button>
+      <button data-lang="fr">FR</button>
+      <button data-lang="zh">中</button>
+    </div>
+  </aside>
 
   <!-- Contenedor principal -->
-  <div class="main-container">
+  <main class="main-content">
     <!-- Barra de navegación superior -->
-    <nav class="top-nav">
-      <a href="#" data-section="howTo" id="nav-howTo"></a>
-      <a href="#" data-section="arrival" id="nav-arrival"></a>
-      <a href="#" data-section="rules" id="nav-rules"></a>
-      <a href="#" data-section="recommendations" id="nav-recommendations"></a>
-      <a href="#" data-section="apartment" id="nav-apartment"></a>
-      <a href="#" data-section="lastDay" id="nav-lastDay"></a>
-      <a href="#" data-section="phones" id="nav-phones"></a>
-    </nav>
+    <header class="top-nav">
+      <nav>
+        <a href="#" data-section="howTo" id="nav-howTo"></a>
+        <a href="#" data-section="arrival" id="nav-arrival"></a>
+        <a href="#" data-section="rules" id="nav-rules"></a>
+        <a href="#" data-section="recommendations" id="nav-recommendations"></a>
+        <a href="#" data-section="apartment" id="nav-apartment"></a>
+        <a href="#" data-section="lastDay" id="nav-lastDay"></a>
+        <a href="#" data-section="phones" id="nav-phones"></a>
+      </nav>
+    </header>
 
     <!-- Secciones de contenido -->
-    <div id="content">
-      <!-- Sección: Cómo llegar -->
-      <div class="section" id="section-howTo">
+    <section class="content">
+      <div id="section-howTo" class="section">
         <h2 id="section-howTo-title"></h2>
         <p id="section-howTo-instructions"></p>
         <p id="section-howTo-address"></p>
       </div>
-      <!-- Sección: Llegada al apartamento, primer día -->
-      <div class="section" id="section-arrival">
+      <div id="section-arrival" class="section">
         <h2 id="section-arrival-title"></h2>
         <p id="section-arrival-supplies"></p>
         <p id="section-arrival-wifi"></p>
         <p id="section-arrival-supermarkets"></p>
         <p id="section-arrival-restaurants"></p>
       </div>
-      <!-- Sección: Normas de la casa -->
-      <div class="section" id="section-rules">
+      <div id="section-rules" class="section">
         <h2 id="section-rules-title"></h2>
         <p id="section-rules-content"></p>
       </div>
-      <!-- Sección: Recomendaciones -->
-      <div class="section" id="section-recommendations">
+      <div id="section-recommendations" class="section">
         <h2 id="section-recommendations-title"></h2>
         <p id="section-recommendations-content"></p>
       </div>
-      <!-- Sección: El apartamento -->
-      <div class="section" id="section-apartment">
+      <div id="section-apartment" class="section">
         <h2 id="section-apartment-title"></h2>
         <p id="section-apartment-description"></p>
         <p id="section-apartment-address"></p>
       </div>
-      <!-- Sección: Último día -->
-      <div class="section" id="section-lastDay">
+      <div id="section-lastDay" class="section">
         <h2 id="section-lastDay-title"></h2>
         <p id="section-lastDay-instructions"></p>
       </div>
-      <!-- Sección: Teléfonos de interés -->
-      <div class="section" id="section-phones">
+      <div id="section-phones" class="section">
         <h2 id="section-phones-title"></h2>
         <p id="section-phones-numbers"></p>
       </div>
-    </div>
-  </div>
-
-  <!-- Enlaza el archivo JavaScript -->
+    </section>
+  </main>
+  <!-- Enlace al JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
