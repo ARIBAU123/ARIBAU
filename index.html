@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apartamento Turístico - Información</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navegación de idiomas: en móvil se muestra como menú colapsable, en escritorio como sidebar -->
+  <nav class="language-nav">
+    <button class="menu-toggle" id="languageToggle">☰ Idiomas</button>
+    <ul class="language-list" id="languageList">
+      <li><button data-lang="es" class="lang-btn">Español</button></li>
+      <li><button data-lang="en" class="lang-btn">English</button></li>
+      <li><button data-lang="it" class="lang-btn">Italiano</button></li>
+      <li><button data-lang="fr" class="lang-btn">Français</button></li>
+      <li><button data-lang="zh" class="lang-btn">中文</button></li>
+    </ul>
+  </nav>
+
+  <!-- Encabezado con título y navegación interna -->
+  <header>
+    <div class="header-inner">
+      <h1 class="site-title">Apartamento Turístico</h1>
+      <button class="menu-toggle" id="navToggle">☰ Menú</button>
+      <nav class="navbar" id="navbar">
+        <ul>
+          <li><a href="#" data-section="como_llegar" class="nav-link active">...</a></li>
+          <li><a href="#" data-section="llegada_primer_dia" class="nav-link">...</a></li>
+          <li><a href="#" data-section="normas" class="nav-link">...</a></li>
+          <li><a href="#" data-section="recomendaciones" class="nav-link">...</a></li>
+          <li><a href="#" data-section="apartamento" class="nav-link">...</a></li>
+          <li><a href="#" data-section="ultimo_dia" class="nav-link">...</a></li>
+          <li><a href="#" data-section="telefonos" class="nav-link">...</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenido principal: se oculta hasta seleccionar idioma -->
+  <main class="content-wrapper hidden">
+    <section id="como_llegar" class="content-section active">
+      <h1>...</h1>
+      <div class="section-content"></div>
+    </section>
+
+    <section id="llegada_primer_dia" class="content-section">
+      <h1>...</h1>
+      <div class="section-content"></div>
+    </section>
+
+    <section id="normas" class="content-section">
+      <h1>...</h1>
+      <div class="section-content"></div>
+    </section>
+
+    <section id="recomendaciones" class="content-section">
+      <h1>...</h1>
+      <div class="section-content"></div>
+    </section>
+
+    <section id="apartamento" class="content-section">
+      <h1>...</h1>
+      <div class="section-content"></div>
+    </section>
+
+    <section id="ultimo_dia" class="content-section">
+      <h1>...</h1>
+      <div class="section-content"></div>
+    </section>
+
+    <section id="telefonos" class="content-section">
+      <h1>...</h1>
+      <div class="section-content"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
